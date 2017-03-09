@@ -14,7 +14,7 @@ class CookiePolicy < ApplicationPolicy
     user.admin?
   end
 
-  def destroy
+  def destroy?
     user.admin?
   end
 end
