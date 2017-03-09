@@ -5,6 +5,7 @@ p = @cookie.allergans
 
 .nav-links
   ul
-    li = link_to 'Edit cookie', edit_cookie_path(@cookie)
-    li = link_to 'Delete cookie', cookie_path(@cookie), method: :delete, data: { confirm: 'Are you sure?' }
+    - if current_user && current_user.admin?
+      li = link_to 'Edit cookie', edit_cookie_path(@cookie)
+      li = link_to 'Delete cookie', cookie_path(@cookie), method: :delete, data: { confirm: 'Are you sure?' }
     li = link_to 'Back to Cookie list', cookies_path

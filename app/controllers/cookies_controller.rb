@@ -11,10 +11,12 @@ class CookiesController < ApplicationController
 
   def new
     @cookie = Cookie.new
+    authorize @cookie
   end
 
   def create
     @cookie = Cookie.new(cookie_params)
+    authorize @cookie
 
     if @cookie.save
       redirect_to @cookie
@@ -27,6 +29,7 @@ class CookiesController < ApplicationController
   end
 
   def update
+    authorize @cookie
     if @cookie.update(cookie_params)
       redirect_to @cookie
     else
@@ -35,6 +38,7 @@ class CookiesController < ApplicationController
   end
 
   def destroy
+    authorize @cookie
     @cookie.destroy
     redirect_to cookies_path
   end
