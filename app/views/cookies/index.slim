@@ -1,4 +1,4 @@
-- if user_signed_in?
+- if current_user && current_user.admin?
   = link_to 'Add new cookie variant', new_cookie_path
 
 - @cookies.each do |cookie|
