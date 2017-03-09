@@ -1,5 +1,6 @@
 class CookiesController < ApplicationController
-  before_filter :set_cookie, only: [:show, :edit, :update, :destroy]
+  before_action :set_cookie, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @cookies = Cookie.all
