@@ -1,0 +1,4 @@
+= link_to 'Add new cookie variant', new_cookie_path
+
+- @cookies.each do |cookie|
+  = link_to cookie.name, cookie_path(cookie)
